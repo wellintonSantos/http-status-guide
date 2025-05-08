@@ -1,5 +1,21 @@
 # 🚦 HTTP Status Code Guide (com FastAPI)
 
+![Python](https://img.shields.io/badge/python-3.10+-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-async%20framework-green)
+![Status](https://img.shields.io/badge/status-estável-success)
+![Último commit](https://img.shields.io/github/last-commit/wellintonSantos/http-status-guide)
+
+## 📖 Sumário
+
+- [🚀 Como rodar localmente](#-como-rodar-localmente)
+- [📚 Endpoints disponíveis](#-endpoints-disponíveis)
+- [🧪 Como testar a API](#-como-testar-a-api)
+  - [Swagger UI](#-swagger-ui)
+  - [Testes via curl](#-testes-via-curl-linha-de-comando)
+- [💡 Objetivo](#-objetivo)
+- [✨ Autor](#-autor)
+
+
 Este projeto simula os principais **status HTTP** utilizados em APIs RESTful, com exemplos práticos, explicações baseadas nas RFCs e mensagens padronizadas para facilitar o aprendizado e a padronização entre times de desenvolvimento, QA e arquitetura.
 
 ---
@@ -8,7 +24,7 @@ Este projeto simula os principais **status HTTP** utilizados em APIs RESTful, co
 
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [Uvicorn](https://www.uvicorn.org/)
-- Python 3.10+
+- [Python 3.10+](https://www.python.org/downloads/)
 
 ---
 

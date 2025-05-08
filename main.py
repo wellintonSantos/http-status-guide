@@ -26,7 +26,6 @@ class UsuarioInput(BaseModel):
     summary="Buscar um usuário pelo ID",
     description="Retorna os dados de um usuário específico se o ID for válido. Caso contrário, retorna erro 404 com explicação."
 )
-
 def get_usuario(usuario_id: int):
     if usuario_id == 123:
         return resposta_sucesso(200, "Usuário encontrado com sucesso")
@@ -39,7 +38,6 @@ def get_usuario(usuario_id: int):
     summary="Criar um novo usuário fictício",
     description="Simula a criação de um recurso, retornando status 201 sem necessidade de payload."
 )
-
 def criar_usuario():
     return resposta_sucesso(201, "Usuário criado com sucesso")
 
@@ -49,7 +47,6 @@ def criar_usuario():
     summary="Deletar um usuário",
     description="Simula a exclusão de um usuário retornando status 204. Nenhum conteúdo é retornado."
 )
-
 def deletar_usuario(usuario_id: int):
     status = 204
     return JSONResponse(
@@ -64,7 +61,6 @@ def deletar_usuario(usuario_id: int):
     summary="Autenticação com token",
     description="Requer token via header Authorization. Retorna 200, 401 ou 403 dependendo do caso."
 )
-
 def acesso_admin(authorization: str = Header(None)):
     if authorization is None:
         return resposta_erro(401, "Token ausente")
@@ -78,7 +74,6 @@ def acesso_admin(authorization: str = Header(None)):
     summary="Acessar o perfil do usuário autenticado",
     description="Retorna 200 se o token estiver presente, ou 401 se ausente."
 )
-
 def perfil(authorization: str = Header(None)):
     if not authorization:
         return resposta_erro(401, "Token de autenticação ausente")
@@ -90,7 +85,6 @@ def perfil(authorization: str = Header(None)):
     summary="Acesso restrito à área administrativa",
     description="Apenas usuários com token específico têm permissão. Caso contrário, retorna 403."
 )
-
 def admin_area(authorization: str = Header(None)):
     if authorization != "Bearer admin123":
         return resposta_erro(403, "Você não tem permissão para acessar esta área")
@@ -102,7 +96,6 @@ def admin_area(authorization: str = Header(None)):
     summary="Registrar um novo usuário",
     description="Simula registro com verificação de duplicidade. Retorna 409 se o e-mail já existir."
 )
-
 def registrar_usuario(dado: dict):
     if dado.get("email") == "wellinton@email.com":
         return resposta_customizada(409, "Este email já está cadastrado")
@@ -114,7 +107,6 @@ def registrar_usuario(dado: dict):
     summary="Simular limite de requisições",
     description="Simula o erro 429 por excesso de requisições. Útil para testes de rate limiting."
 )
-
 def limite_de_requisicoes():
     return resposta_customizada(429, "Limite de requisições excedido")
 
@@ -124,7 +116,6 @@ def limite_de_requisicoes():
     summary="Simular uma requisição inválida",
     description="Retorna 400 se o campo obrigatório estiver ausente no corpo JSON."
 )
-
 def bad_request_simulado(dado: dict):
     if "nome" not in dado:
         return resposta_erro(400, "Campo 'nome' é obrigatório")
@@ -136,7 +127,6 @@ def bad_request_simulado(dado: dict):
     summary="Validar campos com Pydantic",
     description="Retorna 200 se os dados forem válidos, ou 422 em caso de erro de validação."
 )
-
 def validar_usuario(usuario: UsuarioInput):
     return resposta_sucesso(200, f"Usuário {usuario.nome} com {usuario.idade} anos recebido com sucesso!")
 
@@ -146,7 +136,6 @@ def validar_usuario(usuario: UsuarioInput):
     summary="Listar todas as explicações dos códigos",
     description="Retorna um dicionário com todas as explicações padronizadas por status HTTP."
 )
-
 def explicacoes():
     return EXPLICACOES_HTTP
 

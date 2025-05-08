@@ -1,0 +1,21 @@
+# Ambiente virtual (caso use venv)
+venv/
+.env
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Arquivos temporários de sistema
+.DS_Store
+*.log
+
+# Pastas do VSCode ou IDEs
+.vscode/
+.idea/
+
+# Relatórios, se forem gerados localmente
+*.html
+*.xml
+*.json
